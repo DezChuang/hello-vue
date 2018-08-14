@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="baseContainer">
     <!--
       router-link 就像 <a href="/BlizzardCarousel">BlizzardCarousel</a>
       :to 裡面是物件形式，描述要轉跳的目的與需要帶的參數
@@ -11,8 +11,12 @@
         component: BlizzardCarousel
       },
     -->
-    <router-link :to="{path: '/'}">Home</router-link>
-    <router-link :to="{path: '/BlizzardCarousel'}">BlizzardCarousel</router-link>
+    <header>
+      <nav>
+        <router-link class="headerLink" :to="{path: '/'}">Home</router-link>
+        <router-link class="headerLink" :to="{path: '/BlizzardCarousel'}">BlizzardCarousel</router-link>
+      </nav>
+    </header>
 
     <!-- 轉跳後所載入的 component 最後會顯示在此 -->
     <router-view/>
@@ -81,5 +85,16 @@ export default {
   div {
     box-sizing: border-box;
     display: block;
+  }
+  header {
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+  .headerLink {
+    color: rgba(255, 255, 255, 0.7);
   }
 </style>

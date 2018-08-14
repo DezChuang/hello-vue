@@ -1,3 +1,27 @@
 <div>
-  <h1>CarouselSlider</h1>
+  <div>
+      <img class="bgImage" :src="contentList[slideIndex].background">
+      <div class="paneContent">
+          <img class="logoImage" :src="contentList[slideIndex].logo">
+          <h3 class="title">{{ contentList[slideIndex].title }}</h3>
+          <div class="buttonWrapper">
+              <button>瞭解詳情</button>
+          </div>
+
+      </div>
+  </div>
+  <div>
+
+  </div>
+  <!-- <ul>
+    <li v-for="item in contentList">
+
+    </li>
+  </ul> -->
+  <div class="iconContainer iconArrowPrev" @click="clickPrev">
+    <i class="iconArrow"><</i>
+  </div>
+  <div class="iconContainer iconArrowNext" @click="clickNext">
+    <i class="iconArrow">></i>
+  </div>
 </div>
