@@ -1,0 +1,20 @@
+<div id="carouselContainer">
+  <div class="wrapper">
+    <ul>
+      <li v-for="item in contentList">
+        <img class="background" :src="item.background">
+        <img :src="item.logo">
+        <p>{{ item.title }}</p>
+        <button>瞭解詳情</button>
+      </li>
+    </ul>
+    <div class="iconContainer iconArrowPrev">
+      <i class="iconArrow"><</i>
+    </div>
+    <div class="iconContainer iconArrowNext">
+      <i class="iconArrow">></i>
+    </div>
+  </div>
+  <CarouselSlider></CarouselSlider>
+  <CarouselArrow></CarouselArrow>
+</div>
