@@ -13,8 +13,8 @@
     -->
     <header>
       <nav>
-        <router-link class="headerLink" :to="{path: '/'}">Home</router-link>
-        <router-link class="headerLink" :to="{path: '/BlizzardCarousel'}">BlizzardCarousel</router-link>
+        <!--router-link class="headerLink" :to="{path: '/'}">Home</router-link-->
+        <!--router-link class="headerLink" :to="{path: '/'}">Blizzard</router-link-->
       </nav>
     </header>
 

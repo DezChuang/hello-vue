@@ -1,27 +1,42 @@
 <div>
-  <div>
-      <img class="bgImage" :src="contentList[slideIndex].background">
-      <div class="paneContent">
-          <img class="logoImage" :src="contentList[slideIndex].logo">
-          <h3 class="title">{{ contentList[slideIndex].title }}</h3>
-          <div class="buttonWrapper">
-              <button>瞭解詳情</button>
+  <!-- 主畫面 -->
+  <div v-for="(item, index) in contentList" :key="item.id">
+      <div v-show="index === slideIndex">
+          <div class="bgContainer">
+            <transition :name="direction > 0 ? 'bg-fade' : 'bg-fade-invert'">
+              <img v-if="index === slideIndex" class="bgImage" :src="item.background">
+            </transition>
           </div>
+          <div class="paneContent">
+              <transition :name="direction > 0 ? 'logo-fade' : 'logo-fade-invert'">
+                <img v-show="index === slideIndex" class="logoImage" :src="item.logo">
+              </transition>
+              <transition :name="direction > 0 ? 'title-fade' : 'title-fade-invert'">
+                <h3 v-show="index === slideIndex" class="title">{{ item.title }}</h3>
+              </transition>
+              <div class="buttonWrapper">
+                <transition :name="direction > 0 ? 'button-fade' : 'button-fade-invert'">
+                  <button v-show="index === slideIndex">瞭解詳情</button>
+                </transition>
+              </div>
 
+
+          </div>
       </div>
   </div>
-  <div>
 
-  </div>
-  <!-- <ul>
-    <li v-for="item in contentList">
-
-    </li>
-  </ul> -->
-  <div class="iconContainer iconArrowPrev" @click="clickPrev">
+  <!-- 左右按鈕 -->
+  <div class="iconContainer iconArrowPrev" @click="changeSlideIndex(slideIndex - 1)">
     <i class="iconArrow"><</i>
   </div>
-  <div class="iconContainer iconArrowNext" @click="clickNext">
+  <div class="iconContainer iconArrowNext" @click="changeSlideIndex(slideIndex + 1)">
     <i class="iconArrow">></i>
+  </div>
+
+  <!-- 下排按鈕 -->
+  <div class="CarouselScrollContainer">
+    <div v-for="(item, index) in contentList" class="CarouselScrollItem" :class="{ active: index === slideIndex }"  @click="changeSlideIndex(index)">
+      <div class="CarouselScrollInner"></div>
+    </div>
   </div>
 </div>
