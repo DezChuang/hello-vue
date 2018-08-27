@@ -1,9 +1,8 @@
 <script>
+  import CarouselSlider from '../../components/Carousel/CarouselSlider'
   export default {
-    name: 'CarouselArrow',
-    data () {
-      return {}
-    }
+    name: 'CarouselContainer',
+    components: { CarouselSlider },
   }
 </script>
 

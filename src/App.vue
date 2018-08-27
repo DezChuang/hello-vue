@@ -1,23 +1,5 @@
 <template>
   <div class="baseContainer">
-    <!--
-      router-link 就像 <a href="/BlizzardCarousel">BlizzardCarousel</a>
-      :to 裡面是物件形式，描述要轉跳的目的與需要帶的參數
-      目的：考可以用 path 或 name
-      在 index.js router 我們是這樣設定的：
-      {
-        path: '/BlizzardCarousel',
-        name: 'BlizzardCarousel',
-        component: BlizzardCarousel
-      },
-    -->
-    <header>
-      <nav>
-        <!--router-link class="headerLink" :to="{path: '/'}">Home</router-link-->
-        <!--router-link class="headerLink" :to="{path: '/'}">Blizzard</router-link-->
-      </nav>
-    </header>
-
     <!-- 轉跳後所載入的 component 最後會顯示在此 -->
     <router-view/>
   </div>
