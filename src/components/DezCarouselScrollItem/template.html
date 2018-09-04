@@ -1,0 +1,10 @@
+<!-- Banner 下排按鈕及內部載入動畫 -->
+<div class="cp_dez_carousel_scroll_item">
+  <CarouselScrollButton
+    v-for="index in total"
+    :key="index"
+    :class="{active: slideIndex === index - 1}"
+    :width="slideIndex === index - 1 ? tweenObj.width : 0"
+    @click.native="changeSlideIndex(index - 1)"
+  />
+</div>

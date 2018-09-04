@@ -1,0 +1,27 @@
+<div class="cp_dez_carousel_content">
+  <div v-for="(item, index) in contentList" :key="item.id">
+    <div v-show="index === slideIndex" :background-color="item.bgColor">
+      <div class="bg_container">
+        <transition :name="direction > 0 ? 'bg_fade' : 'bg_fade_invert'">
+          <img v-if="index === slideIndex" class="bg_image" :src="item.normalBG">
+        </transition>
+        <transition :name="direction > 0 ? 'mobile_bg_fade' : 'mobile_bg_fade_invert'">
+          <img v-if="index === slideIndex" class="mobile_bg_image" :src="item.mobileBG">
+        </transition>
+      </div>
+      <div class="pane_content">
+          <transition :name="direction > 0 ? 'logo_fade' : 'logo_fade_invert'">
+            <img v-show="index === slideIndex" class="logo" :src="item.logo">
+          </transition>
+          <transition :name="direction > 0 ? 'title_fade' : 'title_fade_invert'">
+            <h3 v-show="index === slideIndex" class="title">{{ item.title }}</h3>
+          </transition>
+          <div class="button_wrapper">
+            <transition :name="direction > 0 ? 'button_fade' : 'button_fade_invert'">
+              <button v-show="index === slideIndex">瞭解詳情</button>
+            </transition>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

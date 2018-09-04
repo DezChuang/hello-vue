@@ -1,5 +1,21 @@
-<div id="carouselContainer">
+<div id="ct_dez_container" @mouseenter="mouseOver(1)" @mouseleave="mouseOver(-1)">
   <div class="wrapper">
-    <CarouselSlider/>
+    <DezCarouselContent
+      :contentList="contentList"
+      :slideIndex="slideIndex"
+      :direction="direction"
+    />
+
+    <DezCarouselNextPrev
+      :total="contentList.length"
+      :slideIndex="slideIndex"
+    />
+
+    <DezCarouselScrollItem
+      :total="contentList.length"
+      :slideIndex="slideIndex"
+      :mouseEnter="mouseEnter"
+    />
   </div>
+
 </div>

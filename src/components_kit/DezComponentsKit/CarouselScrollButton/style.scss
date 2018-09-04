@@ -1,0 +1,32 @@
+.cp_carousel_scroll_button {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 26px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.cp_carousel_scroll_button:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 0;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255,255,255,.3);
+}
+.cp_carousel_scroll_button:hover:before {
+  background-color: rgba(255,255,255,.7);
+}
+.cp_carousel_scroll_button.active:before {
+  background-color: #0e86ca;
+}
+.cp_carousel_scroll_button .scroll_button_inner {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+  width: 0%;
+  background-color: #00aeff;
+}

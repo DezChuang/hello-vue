@@ -1,0 +1,302 @@
+$pc-media: 1024px;
+$pcs-media: 1023px;
+$pad-media: 768px;
+$pads-media: 767px;
+$phone-media: 480px;
+$phones-media: 479px;
+
+//電腦
+@mixin pc-width() {
+  @media all and (min-width: $pc-media) {
+    @content;
+  }
+}
+//平板
+@mixin pad-width() {
+  @media all and (min-width:$pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+//小平板
+@mixin small-pad-width() {
+  @media all and (min-width: $phone-media) and (max-width:$pads-media) {
+    @content;
+  }
+}
+//手機
+@mixin phone-width() {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
+.cp_dez_carousel_content {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  touch-action: pan-y;
+  -webkit-user-drag: none;
+  .bg_container {
+    @include pc-width {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 600px;
+    }
+    @include pad-width {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 600px;
+    }
+    @include small-pad-width {
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      width: 115vw;
+      height: 65vh;
+      min-height: 450px;
+      max-height: 450px;
+    }
+    @include phone-width {
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      width: 115vw;
+      height: 65vh;
+      min-height: 450px;
+      max-height: 450px;
+    }
+    .bg_image {
+      @include pc-width {
+        position: absolute;
+        top: 0;
+        left: -550px;
+        opacity: 1;
+
+        object-fit: cover;
+      }
+      @include pad-width {
+        position: absolute;
+        top: 0;
+        left: -550px;
+        opacity: 1;
+
+        object-fit: cover;
+      }
+      @include small-pad-width {
+        position: absolute;
+        top: -100px;
+        left: -900px;
+        opacity: 1;
+
+        object-fit: cover;
+      }
+      @include phone-width {
+        opacity: 0;
+      }
+    }
+    .mobile_bg_image {
+      @include pc-width {
+        opacity: 0;
+      }
+      @include pad-width {
+        opacity: 0;
+      }
+      @include small-pad-width {
+        opacity: 0;
+      }
+      @include phone-width {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        opacity: 1;
+
+        object-fit: cover;
+      }
+    }
+  }
+
+  .pane_content {
+    @include small-pad-width {
+      transform: translateY(60%);
+      text-align: center;
+    }
+    @include phone-width {
+      transform: translateY(60%);
+      text-align: center;
+    }
+
+    position: absolute;
+    right: 0;
+    bottom: calc(50% - 30px);
+    left: 0;
+    padding: 0 80px;
+    transform: translateY(50%);
+
+    .logo {
+      @include small-pad-width {
+        width: 179.4px;
+        padding-bottom: 20px;
+      }
+      @include phone-width {
+        width: 179.4px;
+        padding-bottom: 20px;
+      }
+
+      width: 231.4px;
+      padding-bottom: 40px;
+    }
+    .title {
+      @include small-pad-width {
+        text-align: center;
+        text-shadow: 4px 6.93px 17px rgba(0,0,0,.5);
+        font-size: 47.776px;
+      }
+      @include phone-width {
+        text-align: center;
+        text-shadow: 4px 6.93px 17px rgba(0,0,0,.5);
+        font-size: 25.632px;
+        line-height: 1.2;
+      }
+
+      max-width: 768px;
+      margin-top: -.67716rem;
+      margin-right: auto;
+      margin-bottom: -.67716rem;
+      padding-bottom: 30px;
+      text-align: left;
+      text-transform: uppercase;
+      color: white;
+      font-size: 61.04px;
+      font-weight: bold;
+    }
+    .button_wrapper {
+      @include small-pad-width {
+        text-align: center;
+      }
+      @include phone-width {
+        text-align: center;
+      }
+      /* transition: color .2s; */
+
+      cursor: pointer;
+      text-align: left;
+      text-decoration: none;
+      color: #00aeff;
+      button {
+        @include phone-width {
+          width: 100%;
+        }
+
+        position: relative;
+        display: inline-block;
+        padding: 10px 50px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        border: solid 1px #00aeff;
+        background-color: #0e86ca;
+        font-size: 18px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  /* 進場滑入動畫 */
+  .bg_fade_invert-enter-active {
+    transition: all .3s ease;
+  }
+  .bg_fade_invert-leave-active {
+    transition: all .8s cubic-bezier(1.0, .5, .8, 1.0);
+  }
+  .bg_fade_invert-enter-to {
+    transition: opacity .8s cubic-bezier(1.0, .5, .8, 1.0), transform 10s cubic-bezier(.01,1.03,.57,.79);
+  }
+  .bg_fade_invert-enter,.bg_fade_invert-leave-to {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+
+  .bg_fade-enter-active {
+    transition: opacity .8s cubic-bezier(1.0, .5, .8, 1.0), transform 10s cubic-bezier(.01,1.03,.57,.79);
+  }
+  .bg_fade-leave-active {
+    transition: opacity .8s cubic-bezier(1.0, .5, .8, 1.0), transform 10s cubic-bezier(.01,1.03,.57,.79);
+  }
+  .bg_fade-enter-to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .bg_fade-enter,.bg_fade-leave-to {
+    transform: translateX(10%);
+    opacity: 0;
+  }
+
+  .mobile_bg_fade-enter,.mobile_bg_fade-leave-to {
+    transform: translateX(10%);
+  }
+  .mobile_bg_fade-enter-to,.mobile_bg_fade-leave {
+    transform: translateX(0);
+  }
+  .mobile_bg_fade-enter-active,.mobile_bg_fade-leave-active {
+    transition: all .8s cubic-bezier(.01,1.03,.57,.79);
+  }
+  .mobile_bg_fade_invert-enter,.mobile_bg_fade_invert-leave-to {
+    transform: translateX(-10%);
+  }
+  .mobile_bg_fade_invert-enter-to,.mobile_bg_fade_invert-leave {
+    transform: translateX(0);
+  }
+  .mobile_bg_fade_invert-enter-active,.mobile_bg_fade_invert-leave-active {
+    transition: all .8s cubic-bezier(.01,1.03,.57,.79);
+  }
+
+
+  .logo_fade-enter-active,.logo_fade_invert-enter-active {
+    transition: all 1.3s ease;
+  }
+  .logo_fade-leave-active,.logo_fade_invert-leave-active {
+    transition: all 1.8s cubic-bezier(1.0, .5, .8, 1.0);
+  }
+  .logo_fade-enter,.logo_fade-leave-to {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  .logo_fade_invert-enter,.logo_fade_invert-leave-to {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  .title_fade-enter-active,.title_fade_invert-enter-active {
+    transition: all 2.3s ease;
+  }
+  .title_fade-leave-active,.title_fade_invert-leave-active {
+    transition: all 2.5s cubic-bezier(1.0, .5, .8, 1.0);
+  }
+  .title_fade-enter,.title_fade-leave-to {
+    transform: translateX(80px);
+    opacity: 0;
+  }
+  .title_fade_invert-enter,.title_fade_invert-leave-to {
+    transform: translateX(-80px);
+    opacity: 0;
+  }
+
+  .button_fade-enter-active,.button_fade_invert-enter-active {
+    transition: all 3.3s ease;
+  }
+  .button_fade-leave-active,.button_fade_invert-leave-active {
+    transition: all 3.4s cubic-bezier(1.0, .5, .8, 1.0);
+  }
+  .button_fade-enter,.button_fade-leave-to {
+    transform: translateX(110px);
+    opacity: 0;
+  }
+  .button_fade_invert-enter,.button_fade_invert-leave-to {
+    transform: translateX(-110px);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,30 @@
+.cp_dez_carousel_next_prev {
+  .iconArrowPrev {
+    left: 20px;
+  }
+  .iconArrowNext {
+    right: 20px;
+  }
+  .iconContainer {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    width: 40px;
+    height: 70px;
+    cursor: pointer;
+    transition: background-color 250ms, color 250ms;
+    color: #00aeff;
+    border: solid 1px rgba(255, 255, 255, .15);
+    background-color: rgba(0, 0, 0, .3);
+    font-size: 25.63px;
+    .iconArrow {
+      position: absolute;
+      top: 25%;
+      left: 30%;
+    }
+  }
+  .iconContainer:hover {
+    color: #00aeff;
+    background-color: rgba(0, 0, 0, .2);
+  }
+}

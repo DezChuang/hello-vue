@@ -1,25 +1,62 @@
-#carouselContainer {
+$pc-media: 1024px;
+$pcs-media: 1023px;
+$pad-media: 768px;
+$pads-media: 767px;
+$phone-media: 480px;
+$phones-media: 479px;
+
+//電腦
+@mixin pc-width() {
+  @media all and (min-width: $pc-media) {
+    @content;
+  }
+}
+//平板
+@mixin pad-width() {
+  @media all and (min-width:$pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+//小平板
+@mixin small-pad-width() {
+  @media all and (min-width: $phone-media) and (max-width:$pads-media) {
+    @content;
+  }
+}
+//手機
+@mixin phone-width() {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
+#ct_dez_container {
+  position: relative;
   width: 100vw;
   height: 65vh;
   min-height: 450px;
   max-height: 450px;
-  position: relative;
+  font-family: "Open Sans",Helvetica,Arial,sans-serif;
   .wrapper {
-    background-color: #000;
+    @include pc-width {
+      height: 600px;
+    }
+    @include pad-width {
+      height: 600px;
+    }
+    //小平板
+    @include small-pad-width {
+      height: 450px;
+    }
+    //手機
+    @include phone-width {
+      height: 450px;
+    }
+
+    position: relative;
     width: 100%;
     height: 100%;
-    position: relative;
-    touch-action: pan-y;
     user-select: none;
-    -webkit-user-drag: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    height: 600px;
-    transform: translateZ(0);
+    background-color: #000000;
   }
 }
-
-
-
-
-
-

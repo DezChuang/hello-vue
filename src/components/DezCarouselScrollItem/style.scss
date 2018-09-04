@@ -1,0 +1,20 @@
+.cp_dez_carousel_scroll_item {
+  position: absolute;
+  z-index: 1;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow: visible;
+      flex-direction: row;
+  justify-content: center;
+      flex-wrap: nowrap;
+
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -ms-flex-direction: row;
+  -ms-flex-pack: center;
+  -ms-flex-wrap: nowrap;
+}
